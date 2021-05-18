@@ -19,4 +19,8 @@ export const routes = [
     path: "/planets",
     component: () => import("@/views/Planets/PlanetsPage.vue"),
   },
+  {
+    path: "/planets/:id",
+    component: () => import("@/views/PlanetDetails/PlanetDetailsPage.vue"),
+  },
 ];

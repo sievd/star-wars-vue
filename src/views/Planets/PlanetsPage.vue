@@ -3,7 +3,11 @@
     <div>Planets page</div>
     <div v-if="!loading">
       <div>
-        <div v-for="planet in planets" :key="JSON.stringify(planet)"> 
+        <div 
+          v-for="planet in planets" 
+          :key="JSON.stringify(planet)"
+          @click="onPlanetClicked(planet)"
+        > 
           {{ planet.name }}
         </div>
       </div>
@@ -53,6 +57,10 @@ export default {
     async onPageNumberClicked(n) {
       await this.getPlanets(n);
       this.currentPage = n;
+    },
+    onPlanetClicked(person) {
+      const planetId = person.url.match(/\/(\d+)\//)[1];
+      this.$router.push(`planets/${planetId}`);
     }
   },
   async created() {

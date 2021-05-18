@@ -12,6 +12,9 @@ export default {
   async getPlanets(page) {
     return await this.get(`https://swapi.dev/api/planets/?page=${page}`);
   },
+  async getPlanetById(id) {
+    return await this.get(`https://swapi.dev/api/planets/${id}`);
+  },
   async getStarships(page) {
     return await this.get(`https://swapi.dev/api/starships/?page=${page}`);
   },
