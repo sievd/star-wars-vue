@@ -3,7 +3,11 @@
     <div>Starships page</div>
     <div v-if="!loading">
       <div>
-        <div v-for="starship in starships" :key="JSON.stringify(starship)"> 
+        <div 
+          v-for="starship in starships" 
+          :key="JSON.stringify(starship)"
+          @click="onStarshipClicked(starship)"
+        > 
           {{ starship.name }}
         </div>
       </div>
@@ -53,6 +57,10 @@ export default {
     async onPageNumberClicked(n) {
       await this.getStarships(n);
       this.currentPage = n;
+    },
+    onStarshipClicked(starship) {
+      const starshipId = starship.url.match(/\/(\d+)\//)[1];
+      this.$router.push(`starships/${starshipId}`);
     }
   },
   async created() {

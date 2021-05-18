@@ -12,15 +12,19 @@ export const routes = [
     component: () => import("@/views/PersonDetails/PersonDetailsPage.vue"),
   },
   {
-    path: "/starships",
-    component: () => import("@/views/Starships/StarshipsPage.vue"),
-  },
-  {
     path: "/planets",
     component: () => import("@/views/Planets/PlanetsPage.vue"),
   },
   {
     path: "/planets/:id",
     component: () => import("@/views/PlanetDetails/PlanetDetailsPage.vue"),
+  },
+  {
+    path: "/starships",
+    component: () => import("@/views/Starships/StarshipsPage.vue"),
+  },
+  {
+    path: "/starships/:id",
+    component: () => import("@/views/StarshipDetails/StarshipDetailsPage.vue"),
   },
 ];

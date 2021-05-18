@@ -18,4 +18,7 @@ export default {
   async getStarships(page) {
     return await this.get(`https://swapi.dev/api/starships/?page=${page}`);
   },
+  async getStarshipById(id) {
+    return await this.get(`https://swapi.dev/api/starships/${id}`);
+  },
 };
