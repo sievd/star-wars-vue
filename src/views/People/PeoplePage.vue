@@ -2,9 +2,10 @@
   <div>
     <div>People page</div>
     <div v-if="!loading">
+      <input type="search" v-model="search" />
       <div>
         <div 
-          v-for="person in people" 
+          v-for="person in filteredPeople" 
           :key="JSON.stringify(person)"
           @click="onPersonClicked(person)"
         > 
@@ -37,6 +38,14 @@ export default {
       maxItems: [],
       currentPage: 0,
       loading: true,
+      search: "",
+    }
+  },
+  computed: {
+    filteredPeople: function() {
+      return this.people.filter(
+        person => person.name.toLowerCase().includes(this.search.toLowerCase())
+      );
     }
   },
   methods: {

@@ -2,9 +2,10 @@
   <div>
     <div>Starships page</div>
     <div v-if="!loading">
+      <input type="search" v-model="search" />
       <div>
         <div 
-          v-for="starship in starships" 
+          v-for="starship in filteredStarships" 
           :key="JSON.stringify(starship)"
           @click="onStarshipClicked(starship)"
         > 
@@ -37,6 +38,14 @@ export default {
       maxItems: [],
       currentPage: 0,
       loading: true,
+      search: "",
+    }
+  },
+  computed: {
+    filteredStarships: function() {
+      return this.starships.filter(
+        starship => starship.name.toLowerCase().includes(this.search.toLowerCase())
+      );
     }
   },
   methods: {

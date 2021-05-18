@@ -2,9 +2,10 @@
   <div>
     <div>Planets page</div>
     <div v-if="!loading">
+      <input type="search" v-model="search" />
       <div>
         <div 
-          v-for="planet in planets" 
+          v-for="planet in filteredPlanets" 
           :key="JSON.stringify(planet)"
           @click="onPlanetClicked(planet)"
         > 
@@ -37,6 +38,14 @@ export default {
       maxItems: [],
       currentPage: 0,
       loading: true,
+      search: "",
+    }
+  },
+  computed: {
+    filteredPlanets: function() {
+      return this.planets.filter(
+        planet => planet.name.toLowerCase().includes(this.search.toLowerCase())
+      );
     }
   },
   methods: {
