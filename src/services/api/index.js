@@ -5,5 +5,8 @@ export default {
 
   async getPeople(page) {
     return await this.get(`https://swapi.dev/api/people/?page=${page}`);
+  },
+  async getPlanets(page) {
+    return await this.get(`https://swapi.dev/api/planets/?page=${page}`);
   }
 };
