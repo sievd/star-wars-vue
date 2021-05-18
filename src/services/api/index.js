@@ -3,5 +3,7 @@ import requestHandler from "./requestHandler";
 export default {
   ...requestHandler,
 
-  //calls to the API
+  async getPeople(page) {
+    return await this.get(`https://swapi.dev/api/people/?page=${page}`);
+  }
 };
