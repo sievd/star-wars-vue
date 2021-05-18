@@ -27,4 +27,8 @@ export const routes = [
     path: "/starships/:id",
     component: () => import("@/views/StarshipDetails/StarshipDetailsPage.vue"),
   },
+  {
+    path: "*",
+    component: () => import("@/views/NotFoundError/NotFoundErrorPage.vue"),
+  },
 ];
