@@ -1,18 +1,19 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
+    <Footer v-if="$route.path != '/'"></Footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './views/Home/HomePage.vue'
+import Footer from "@/views/_common/Footer.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
+    Footer
+  },
 }
 </script>
 
