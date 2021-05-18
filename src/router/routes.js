@@ -8,6 +8,10 @@ export const routes = [
     component: () => import("@/views/People/PeoplePage.vue"),
   },
   {
+    path: "/people/:id",
+    component: () => import("@/views/PersonDetails/PersonDetailsPage.vue"),
+  },
+  {
     path: "/starships",
     component: () => import("@/views/Starships/StarshipsPage.vue"),
   },

@@ -3,7 +3,11 @@
     <div>People page</div>
     <div v-if="!loading">
       <div>
-        <div v-for="person in people" :key="JSON.stringify(person)"> 
+        <div 
+          v-for="person in people" 
+          :key="JSON.stringify(person)"
+          @click="onPersonClicked(person)"
+        > 
           {{ person.name }}
         </div>
       </div>
@@ -53,6 +57,10 @@ export default {
     async onPageNumberClicked(n) {
       await this.getPeople(n);
       this.currentPage = n;
+    },
+    onPersonClicked(person) {
+      const personId = person.url.match(/\/(\d+)\//)[1];
+      this.$router.push(`people/${personId}`);
     }
   },
   async created() {
